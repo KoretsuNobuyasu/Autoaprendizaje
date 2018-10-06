@@ -1,0 +1,9 @@
+house <- read.csv("./house.csv", header=T, row.names=1)#
+house1 <- house[,3]#
+hist(house1)
+install.packages("scatterplot3d")#
+library("scatterplot3d")#
+#
+house<-read.csv("./house.csv")#
+par(family="HiraKakuProN-W3")#
+scatterplot3d(house)
