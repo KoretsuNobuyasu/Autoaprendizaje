@@ -7,3 +7,9 @@ library("scatterplot3d")#
 house<-read.csv("./house.csv")#
 par(family="HiraKakuProN-W3")#
 scatterplot3d(house)
+test<-read.csv("./testdata.csv",header=T, row.names=1)#
+test1 <- test[,1]#
+hist(test1)#
+#
+mean(test1)#
+var(test1)
