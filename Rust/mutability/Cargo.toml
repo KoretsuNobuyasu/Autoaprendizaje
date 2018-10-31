@@ -1,0 +1,6 @@
+[package]
+name = "mutability"
+version = "0.1.0"
+authors = ["KoretsuNobuyasu <einsatzkommandocobra.1996@gmail.com>"]
+
+[dependencies]
