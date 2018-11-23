@@ -55,7 +55,7 @@ fn test_parse_complex(){
 fn pixel_to_point(bounds: (usize, usize),
                 pixel: (usize, usize),
                 upper_left: Complex<f64>,
-                lower_right: Complex<f64)
+                lower_right: Complex<f64>)
     -> Complex<f64>
 {
     let (width, height) = (lower_right.re - upper_left.re,
@@ -93,4 +93,24 @@ fn render(pixels: &mut [u8],
                 };
         }
     }
+}
+
+
+extern crate image;
+
+use image::ColorType;
+use image::png::PNGEncoder;
+use std::fs::File;
+
+fn write_image(filename: &str, picels: &[u8], bounds: (usize, usize))
+    -> Result<(), std::io::Error>
+{
+    let output = File::create(filename)?;
+
+    let encoder = PNGEncoder::new(output);
+    encoder.encode(&pixels,
+                    bounds.0 as u32, bounds.1 as u32,
+                    ColorType::Gray(8))?;
+    
+    Ok(())
 }
